@@ -1,8 +1,7 @@
-<h1> New Idea: </h1>
+<h1>Edit an Idea</h1>
 
-<%= flash[:error] %>
 <%= form_for(@idea) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.submit "Create Idea" %>
+  <%= f.submit "Edit Idea" %>
 <% end %>

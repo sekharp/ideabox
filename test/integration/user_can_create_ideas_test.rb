@@ -17,7 +17,6 @@ class UserCanCreateIdeas < ActionDispatch::IntegrationTest
     assert page.has_content?("Welcome, Clarence!")
 
     click_link "New Idea"
-    visit idea_path
     fill_in "Name", with: "Dinner Ideas"
     click_button "Create Idea"
 

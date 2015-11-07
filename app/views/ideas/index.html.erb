@@ -1,0 +1,10 @@
+<h1>Ideas:</h1>
+<% @ideas.each do |idea| %>
+  <li>
+    <%= link_to idea.name, idea %>
+    <%= link_to "Edit", edit_idea_path(idea) %>
+    <%= link_to "Delete", idea, method: :delete %>
+  </li>
+<% end %>
+
+<%= link_to "New Idea", new_idea_path %>
