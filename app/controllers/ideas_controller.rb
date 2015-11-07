@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
 
   def index
-    @ideas = Idea.all
+    @user = User.find(session[:user_id])
+    @ideas = Idea.where(user_id: @user.id)
   end
 
   def new
@@ -9,12 +10,12 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    @user = User.find(session[:user_id])
+    @idea = @user.ideas.new(idea_params)
     if @idea.save
-      session[:idea_id] = @idea.id
       redirect_to @idea
     else
-      # errors later implement them or DIE
+      # implement errors later
     end
   end
 
@@ -38,6 +39,7 @@ class IdeasController < ApplicationController
 
   def destroy
     Idea.destroy(params[:id])
+    redirect_to ideas_path
   end
 
   private
