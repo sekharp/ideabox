@@ -1,2 +1,9 @@
 <h1><%= @idea.name %></h1>
+
+<div>
+  <% @idea.images.each do |image| %>
+    <img src="<%=image.link%>" alt='<%= image.name %>'/>
+  <% end %>
+</div>
+
 <%= link_to "Index", ideas_path %>
