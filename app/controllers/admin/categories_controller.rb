@@ -8,6 +8,11 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new
   end
 
+  def show
+    @category = Category.find(params[:id])
+    @ideas = Idea.where(category_id: @category.id)
+  end
+
   def create
     @category = Category.new(category_params)
     if @category.save
@@ -17,6 +22,11 @@ class Admin::CategoriesController < Admin::BaseController
       flash.now[:errors] = @category.errors.full_messages.join(", ")
       render :new
     end
+  end
+
+  def destroy
+    Category.destroy(params[:id])
+    redirect_to admin_categories_path
   end
 
 private

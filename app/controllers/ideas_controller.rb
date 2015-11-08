@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
 
   def index
     @user = User.find(session[:user_id])
-    @ideas = Idea.where(user_id: @user.id)
+    @ideas = @user.ideas
   end
 
   def new
@@ -15,7 +15,8 @@ class IdeasController < ApplicationController
     if @idea.save
       redirect_to @idea
     else
-      # implement errors later
+      flash[:error] = @idea.errors.full_messages.join(', ')
+      render :new
     end
   end
 

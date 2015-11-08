@@ -1,0 +1,11 @@
+<h1><%= @category.name %></h1>
+
+<% @ideas.each do |idea| %>
+  <li>
+    <%= link_to idea.name, idea %>
+    <%= link_to "Edit", edit_idea_path(idea) %>
+    <%= link_to "Delete", idea, method: :delete %>
+  </li>
+<% end %>
+
+<%= link_to "Index", admin_categories_path %>
