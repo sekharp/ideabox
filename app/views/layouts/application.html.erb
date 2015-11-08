@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ideabox</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+	<title>Idea Box</title>
+  <link rel="stylesheet" href="/bootstrap.css">
+  <link rel="stylesheet" href="/application.css">
 </head>
+​
 <body>
 
-<% flash.each do |type, msg| %>
-  <%= content_tag :div, msg, class: "flash_#{type}" %>
-<% end %>
+  <nav>
+    <img class="logo" src="https://s3.amazonaws.com/ooomf-com-files/8H0UdTsvRFqe03hZkNJr_New%20York%20-%20On%20the%20rock%20-%20Empire%20State%20Building.jpg" alt="books">
+  </nav>
 
-<div>
-  <% if current_user %>
-    <%= link_to "Logout", logout_path, method: :delete %>
-  <% else %>
-    <%= link_to "Login", login_path %>
-    <%= link_to "Create An Account", new_user_path %>
+  <% flash.each do |type, msg| %>
+    <%= content_tag :div, msg, class: "flash_#{type}" %>
   <% end %>
-</div>
 
-<%= yield %>
+  <div class="container">
+    <div>
+      <% if current_user %>
+        <%= link_to "Logout", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", login_path %>
+        <%= link_to "Create An Account", new_user_path %>
+      <% end %>
+    </div>
 
-</body>
+    <%= yield %>
+  </div>
+​
+<body style="margin-bottom: 24px">
+​
 </html>
