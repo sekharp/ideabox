@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -53,5 +55,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
