@@ -1,8 +1,8 @@
 <h1>Ideas Index:</h1>
 <% @ideas.each do |idea| %>
   <li>
-    <%= link_to idea.name, idea %>
-    <%= link_to "Edit", edit_idea_path(idea), class: 'btn btn-success' %>
+    <%= link_to idea.name, idea, class: 'btn btn-primary btn-xs' %>
+    <%= link_to "Edit", edit_idea_path(idea) %>
     <%= link_to "Delete", idea, method: :delete %>
   </li>
 <% end %>
