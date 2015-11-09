@@ -2,7 +2,7 @@
 <% @ideas.each do |idea| %>
   <li>
     <%= link_to idea.name, idea %>
-    <%= link_to "Edit", edit_idea_path(idea) %>
+    <%= link_to "Edit", edit_idea_path(idea), class: 'btn btn-success' %>
     <%= link_to "Delete", idea, method: :delete %>
   </li>
 <% end %>
